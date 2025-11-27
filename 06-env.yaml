@@ -8,6 +8,6 @@ spec:
     image: nginx
     env:
     - name: DevOpsTeamSize
-      value: 10
+      value: "10"
     - name: TeamLead
-      value: Anil
+      value: "Anil"
