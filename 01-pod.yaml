@@ -4,8 +4,8 @@ metadata:
    name: nginx
    namespace: roboshop
    labels:
-   name: nginx
-   project: roboshop
+     name: nginx
+     project: roboshop
 spec: 
      containers:
      - name: nginx-container
