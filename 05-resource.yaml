@@ -1,12 +1,12 @@
 apiVersion: v1
 kind: Pod
 metadata: 
-  name: resource
+  name: resource_demo
 spec:
   containers:
   - name: nginx
     image: nginx
-    resource:
+    resources:
       requests: #to start container
         memory: "70Mi"
         cpu: "100m"
