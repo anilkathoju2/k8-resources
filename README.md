@@ -109,21 +109,36 @@ List CPU and memory usage of pods
 kubectl top pods
 
 ✅ Useful Commands Summary
-Action	Command
-Create EKS cluster	eksctl create cluster --config-file=eks.yaml
-List nodes	kubectl get nodes
-List namespaces	kubectl get namespace
-Create namespace	kubectl create namespace <namespace>
-Apply namespace	kubectl apply -f 00-namespace.yaml
-Apply pod	kubectl apply -f 01-pod.yaml
-List pods (default)	kubectl get pods
-List pods (namespace)	kubectl get pods -n <namespace>
-Exec into nginx container	kubectl exec -it multi-container -c nginx -- bash
-Exec into redis container	kubectl exec -it multi-container -c redis -- bash
-Exec into pod	kubectl exec -it pod -- bash
-Describe pod	kubectl describe pod <pod>
-Describe pod in namespace	kubectl describe pod <pod> -n <namespace>
-Pod resource usage	kubectl top pods
+**Action	Command**
+
+**create EKS cluster	eksctl create cluster --config-file=eks.yaml**
+
+**List nodes	kubectl get nodes**
+
+**List namespaces	kubectl get namespace**
+
+**Create namespace	kubectl create namespace <namespace>**
+
+**Apply namespace	kubectl apply -f 00-namespace.yaml**
+
+**Apply pod	kubectl apply -f 01-pod.yaml**
+
+**List pods (default)	kubectl get pods**
+
+**List pods (namespace)	kubectl get pods -n <namespace>**
+
+**Exec into nginx container	kubectl exec -it multi-container -c nginx -- bash**
+
+**Exec into redis container	kubectl exec -it multi-container -c redis -- bash**
+
+**Exec into pod	kubectl exec -it pod -- bash**
+
+**Describe pod	kubectl describe pod <pod>**
+
+**Describe pod in namespace	kubectl describe pod <pod> -n <namespace>**
+
+**Pod resource usage	kubectl top pods**
+
 📚 Additional Notes
 
 Ensure your AWS credentials are configured before creating the cluster.
