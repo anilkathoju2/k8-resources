@@ -22,49 +22,31 @@ Checking Resource Usage
 
 Useful Commands Summary
 
-🏗 Creating an EKS Cluster
-
-Use eksctl to create an EKS cluster using a configuration file.
-
-Example cluster config: eks.yaml
-apiVersion: eksctl.io/v1alpha5
-kind: ClusterConfig
-
-metadata:
-  name: demo-cluster
-  region: ap-south-1
-
-nodeGroups:
-  - name: demo-ng
-    instanceType: t3.medium
-    desiredCapacity: 2
-
-Create the cluster
+**Create the cluster**
 eksctl create cluster --config-file=eks.yaml
+**🖥 Verifying Cluster Nodes**
 
-🖥 Verifying Cluster Nodes
-
-Check if worker nodes are active:
+**Check if worker nodes are active:**
 
 kubectl get nodes
 
-📁 Working With Namespaces
+**📁 Working With Namespaces**
 List all namespaces
 kubectl get namespace
 
-Create a new namespace
+**Create a new namespace**
 kubectl create namespace <namespace>
 
-Apply namespace from YAML
+**Apply namespace from YAML**
 kubectl apply -f 00-namespace.yaml
 
-📦 Deploying Pods
+**📦 Deploying Pods**
 
 Apply a pod manifest:
 
 kubectl apply -f 01-pod.yaml
 
-🟦 Listing Pods
+**🟦 Listing Pods**
 List pods in the default namespace
 kubectl get pods
 
@@ -76,7 +58,7 @@ No resources found in default namespace
 
 It means no pods are deployed in the default namespace.
 
-List pods inside a specific namespace
+**List pods inside a specific namespace**
 kubectl get pods -n <namespace>
 
 🔎 Describing Pods
