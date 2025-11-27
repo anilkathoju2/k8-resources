@@ -7,7 +7,7 @@ spec:
   - name: nginx
     image: nginx
     resource:
-      request: #to start container
+      requests: #to start container
         memory: "70Mi"
         cpu: "100m"
       limits:
