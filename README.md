@@ -108,7 +108,7 @@ Requires Metrics Server installed.
 List CPU and memory usage of pods
 kubectl top pods
 
-✅ Useful Commands Summary
+**✅ Useful Commands Summary**
 **Action	Command**
 
 **create EKS cluster	eksctl create cluster --config-file=eks.yaml**
