@@ -1,12 +1,15 @@
 apiVersion: v1
 kind: Pod
 metadata:
-  name: nodeport-pod
-  labels:
-    app: nodeport-app
+  name: service-np-demo
+  labels: #these lables will be used to registe this pod with servce
+    project: betanxt
+    component: frontend
+    environment: dev
+    purpose: node-port
+
 spec:
   containers:
-    - name: nginx
-      image: nginx:latest
-      ports:
-        - containerPort: 80
+  - name: nginx
+    image: nginx
+
