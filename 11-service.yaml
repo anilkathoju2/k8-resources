@@ -1,0 +1,16 @@
+apiVersion: v1
+kind: Service
+metadata:
+   name: nginx
+spec:
+  selector:
+    project: betanxt
+    component: frontend
+    environment: dev
+ports:
+  - protocal: TCP
+    port: 80 #service port
+    targetPort: 80
+
+
+
