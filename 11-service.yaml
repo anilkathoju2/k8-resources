@@ -7,7 +7,7 @@ spec:
     project: betanxt
     component: frontend
     environment: dev
-ports:
+  ports:
   - protocal: TCP
     port: 80 #service port
     targetPort: 80
