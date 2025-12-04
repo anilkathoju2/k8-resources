@@ -5,10 +5,10 @@ kind: PersistentVolume
 metadata:
   name: ebs-static
   labels:
-  purpose: size
+    purpose: size
 spec:
   accessModes:
-  - ReadWriteOnce
+    - ReadWriteOnce
   persistentVolumeReclaimPolicy: Retain
   capacity:
     storage: 15Gi
@@ -16,4 +16,5 @@ spec:
     driver: ebs.csi.aws.com
     fsType: ext4
     volumeHandle: vol-075ba0995389c1a85
+
  
