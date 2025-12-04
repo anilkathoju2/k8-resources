@@ -1,9 +1,11 @@
 ---
-##PV creation 
+## PV creation 
 apiVersion: v1
 kind: PersistentVolume
 metadata:
   name: ebs-static
+  labels:
+    purpose: ebs-static
 spec:
   accessModes:
     - ReadWriteOnce
@@ -15,13 +17,13 @@ spec:
     fsType: ext4
     volumeHandle: vol-075ba0995389c1a85
 ---
-###pvc creation
+## PVC creation
 apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:
   name: ebs-static
 spec:
-  storageClassName: "" # Empty string must be explicitly set otherwise default StorageClass will be set
+  storageClassName: ""  # Prevent default SC
   volumeName: ebs-static
   accessModes:
     - ReadWriteOnce
@@ -29,42 +31,38 @@ spec:
     requests:
       storage: 15Gi
 ---
-## attach to pod
-
+## Pod attach to EBS volume
 apiVersion: v1
 kind: Pod
 metadata:
   name: nginx
   labels:
-      purpose: ebs-static
+    purpose: ebs-static   # Required for Service selector match
 spec:
+  nodeSelector:
+    topology.kubernetes.io/zone: us-east-1b
   containers:
   - name: nginx
     image: nginx
-    
     volumeMounts:
     - name: nginx-html
       mountPath: /usr/share/nginx/html
-  nodeSelector:
-    topology.kubernetes.io/zone: us-east-1b
-    
   volumes:
   - name: nginx-html
     persistentVolumeClaim:
       claimName: ebs-static
-
 ---
+## Service to expose NGINX
 apiVersion: v1
 kind: Service
 metadata:
   name: nginx-ebs-static
 spec:
-   type: LoadBalancer
-   selector:
-     purpose: ebs-static
-   ports:
+  type: LoadBalancer
+  selector:
+    purpose: ebs-static   # MUST match Pod labels
+  ports:
     - protocol: TCP
-      port: 80 #service port
+      port: 80
       targetPort: 80
-      nodePort: 30007 
-
+      nodePort: 30007
