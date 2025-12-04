@@ -5,7 +5,7 @@ kind: PersistentVolume
 metadata:
   name: ebs-static
   labels:
-    volumeSize: "15GB-for-home"
+    purpose: ebs-static
 spec:
   accessModes:
     - ReadWriteOnce
@@ -51,3 +51,19 @@ spec:
   - name: nginx-html
     persistentVolumeClaim:
       claimName: ebs-static
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: nginx-ebs-static
+spec:
+   type: LoadBalancer
+   selector:
+     purpose: ebs-static
+   ports:
+    - protocol: TCP
+      port: 80 #service port
+      targetPort: 80
+      nodePort: 30007 
+
