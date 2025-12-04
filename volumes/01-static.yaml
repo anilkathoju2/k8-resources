@@ -4,8 +4,8 @@ apiVersion: v1
 kind: PersistentVolume
 metadata:
   name: ebs-static
-  labels: 
-  volumeSize: "15GB-for-home"
+  labels:
+    volumeSize: "15GB-for-home"
 spec:
   accessModes:
     - ReadWriteOnce
@@ -16,5 +16,3 @@ spec:
     driver: ebs.csi.aws.com
     fsType: ext4
     volumeHandle: vol-075ba0995389c1a85
-
- 
