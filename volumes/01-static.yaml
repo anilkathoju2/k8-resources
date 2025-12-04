@@ -1,3 +1,5 @@
+#Static provisioning is when you manually create a PersistentVolume and Kubernetes only
+# binds PVCs to these pre-existing storage volumes, without creating them automatically.
 ---
 ## PV creation 
 apiVersion: v1
